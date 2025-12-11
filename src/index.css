@@ -1,0 +1,41 @@
+/* frontend/src/index.css */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #1a1a2e; /* Azul oscuro elegante */
+  color: #fff;
+}
+.container { padding: 20px; }
+.btn { cursor: pointer; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; }
+.btn-primary { background-color: #e94560; color: white; } /* Rojo cine */
+
+/* ESTILOS DE IMPRESIÓN PARA TICKETS */
+@media print {
+  /* 1. Ocultar TODA la aplicación por defecto al imprimir */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* 2. Hacer visible SOLO el ticket y sus hijos */
+  #printable-ticket, #printable-ticket * {
+    visibility: visible;
+    display: block !important;
+  }
+
+  /* 3. Posicionar el ticket en la esquina superior izquierda de la hoja */
+  #printable-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white !important; /* Forzar fondo blanco */
+    color: black !important; /* Forzar texto negro */
+  }
+
+  /* Ocultar botones o elementos decorativos que se hayan colado */
+  button, .no-print {
+    display: none !important;
+  }
+}
